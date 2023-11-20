@@ -8,10 +8,12 @@ library(data.table)
 library(ggplot2)
 library(dplyr)
 
-source("D:/Sungah/성균관대학교/논문/Coverage Probability Algorithm(Final).R")
-source("D:/Sungah/성균관대학교/논문/Calculate CI.R")
+setwd("/home/rstudio/work")
+
+source("Coverage Probability Algorithm.R")
+source("Calculate CI.R")
 # Simon, Shan, Our Sample size
-data_file = "D:/Sungah/성균관대학교/논문/Result_p_0_p_1_0.2.xlsx"
+data_file = "Result_p_0_p_1_0.15.xlsx"
 
 # alpha = 0.05/ beta = 0.1
 alpha = 0.05; beta = 0.1
