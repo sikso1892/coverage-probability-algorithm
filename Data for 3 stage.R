@@ -17,13 +17,13 @@ source("Promising zone in 3 stage.R")
 
 data_file = "3Stage_Data.xlsx"
 
-sheet_name = "Page 5"
+sheet_name = "Page 6-7"
 
-data = readxl::read_excel(data_file, sheet = sheet_name, range = "A4:H52") %>% as.data.table
+data = readxl::read_excel(data_file, sheet = sheet_name, range = "A4:H49") %>% as.data.table
 
 names(data) = c("p_0", "p_1", "stage1", "stage2", "stage3", "EN", "PET_s1", "PET_all")
 
-data$p0 = rep(seq(0.05, 0.8, by = 0.05), each = 3)
+data$p0 = rep(seq(0.05, 0.75, by = 0.05), each = 3)
 
 data[, p1 := p0 + 0.2]
 
@@ -59,7 +59,7 @@ results <- pblapply(1:nrow(dat), function(i) {
 })
 
 # 결과 확인
-results = rbindlist(results)
+results = rbindlist(results, fill = T)
 # 시간 측정 종료
 end_time <- Sys.time()
 
